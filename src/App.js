@@ -1,4 +1,4 @@
-import { React, useEffect } from 'react'
+import { React, useEffect, useState } from 'react'
 import { BrowserRouter, Routes, Route } from 'react-router-dom'
 import { FiSettings } from 'react-icons/fi'
 import { TooltipComponent } from '@syncfusion/ej2-react-popups';
@@ -6,11 +6,12 @@ import { TooltipComponent } from '@syncfusion/ej2-react-popups';
 import { Navbar, Footer, Sidebar, ThemeSettings } from './components';
 import { Ecommerce, Orders, Calendar, Employees, Stacked, Pyramid, Customers, Kanban, Line, Area, Bar, Pie, Financial, Colorpicker, ColorMapping, Editor } from './pages';
 
-
+import { useStateContext } from './Contexts/ContextProvider';
 import './App.css'
 const App = () => {
 
-  const activeMenu = true;
+
+  const { activeMenu } = useStateContext();
 
   return (
     <div>
@@ -19,8 +20,6 @@ const App = () => {
         <div className="flex relative dark:bg-main-dark-bg"></div>
         <div className="fixed right-4 bottom-4" style={{ zIndex: '1000' }}>
         </div>
-
-
 
         <TooltipComponent content="Setting" position='Top'>
           <button
@@ -46,7 +45,6 @@ const App = () => {
             sidebar-wo</div>}
 
 
-
         <div
           className={
             activeMenu
@@ -59,13 +57,11 @@ const App = () => {
         >
           making navbar:
           <div className="fixed md:static bg-main-bg dark:bg-main-dark-bg navbar w-full ">
-            <Navbar />  ya
+            <Navbar />
           </div>
 
-
-
-
           <Routes>
+
 
             <Route path="/" element={(<Ecommerce />)} />
             <Route path="/ecommerce" element={(<Ecommerce />)} />
@@ -76,10 +72,7 @@ const App = () => {
             <Route path="/customers" element={<Customers />} />
 
 
-
-
-
-            <Route path="/kanban" element={<Kanban />} />
+=            <Route path="/kanban" element={<Kanban />} />
             <Route path="/editor" element={<Editor />} />
             <Route path="/calendar" element={<Calendar />} />
             <Route path="/color-picker" element={<Colorpicker />} />
@@ -95,16 +88,10 @@ const App = () => {
 
 
 
-
           </Routes>
 
 
         </div>
-
-
-
-
-
       </BrowserRouter>
 
 
