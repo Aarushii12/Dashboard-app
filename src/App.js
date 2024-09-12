@@ -42,7 +42,7 @@ const App = () => {
 
         </div>) :
           <div>
-            sidebar-wo</div>}
+          </div>}
 
 
         <div
@@ -55,7 +55,7 @@ const App = () => {
           }
 
         >
-          making navbar:
+          {/* making navbar: */}
           <div className="fixed md:static bg-main-bg dark:bg-main-dark-bg navbar w-full ">
             <Navbar />
           </div>

@@ -2,24 +2,30 @@ import React, { Children, createContext, useContext, useState } from "react";
 
 const StateContext = createContext();
 
-const InitialState = {
-    chat: false,
-    chart: false,
-    userProfile: false,
-    notification: false
+const initialState = {
+  chat: false,
+  chart: false,
+  userProfile: false,
+  notification: false
 }
 
 
 
 export const ContextProvider = ({ children }) => {
+  const [screenSize, setScreenSize] = useState(undefined);
 
-    const [activeMenu, setActiveMenu] = useState(true);
 
-    return (
-        <StateContext.Provider value={{ activeMenu, setActiveMenu }}>
-            {children}
-        </StateContext.Provider>
-    );
+  const [activeMenu, setActiveMenu] = useState(true);
+  const [isClicked, setIsClicked] = useState(initialState);
+
+  const handleClick = (clicked) => setIsClicked({ ...initialState, [clicked]: true });
+
+  return (
+    <StateContext.Provider value={{ activeMenu, setActiveMenu, isClicked, setIsClicked, handleClick, screenSize, setScreenSize }}>
+
+      {children}
+    </StateContext.Provider>
+  );
 
 
 
