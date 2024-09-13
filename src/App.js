@@ -29,7 +29,7 @@ const App = () => {
 
             className="text-3xl p-3 hover:drop-shadow-xl hover:bg-light-gray"
           >
-            <FiSettings className="text-gray-600" />
+            {/* <FiSettings className="text-gray-600" /> */}
 
           </button>
 
@@ -68,7 +68,7 @@ const App = () => {
 
 
             <Route path="/orders" element={<Orders />} />
-            <Route path="/employees" element={<Employees />} />
+            <Route path="/employees" element={<Employees/>} />
             <Route path="/customers" element={<Customers />} />
 
 
