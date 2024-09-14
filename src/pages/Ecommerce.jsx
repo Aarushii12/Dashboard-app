@@ -1,6 +1,6 @@
 import React from 'react'
 import { BsCurrencyDollar } from 'react-icons/bs';
-import { GoDot } from 'react-icons/go'; // Updated to GoDot
+import { GoDot } from 'react-icons/go';
 import { IoIosMore } from 'react-icons/io';
 import { DropDownListComponent } from '@syncfusion/ej2-react-dropdowns';
 import { GoPrimitiveDot } from 'react-icons/go';
@@ -11,6 +11,8 @@ import { earningData, medicalproBranding, recentTransactions, weeklyStats, dropd
 import { useStateContext } from '../Contexts/ContextProvider';
 import product9 from '../data/product9.jpg';
 const Ecommerce = () => {
+  const { currentColor, currentMode } = useStateContext();
+
   return (
     <div className="mt-24">
       <div className="flex flex-wrap lg:flex-nowrap justify-center">
@@ -24,7 +26,7 @@ const Ecommerce = () => {
           <div className="mt-6">
             <Button
               color="white"
-              bgColor="blue"
+              bgColor={currentColor}
               text="Download"
               borderRadius="10px"
             />
@@ -59,13 +61,13 @@ const Ecommerce = () => {
             <div className="flex items-center gap-4">
               <p className="flex items-center gap-2 text-gray-600 hover:drop-shadow-xl">
                 <span>
-                  <GoPrimitiveDot /> 
+                  <GoPrimitiveDot />
                 </span>
                 <span>Expense</span>
               </p>
               <p className="flex items-center gap-2 text-green-400 hover:drop-shadow-xl">
                 <span>
-                  <GoPrimitiveDot /> 
+                  <GoPrimitiveDot />
                 </span>
                 <span>Budget</span>
               </p>
@@ -90,21 +92,21 @@ const Ecommerce = () => {
 
             </div>
           </div>
-          <Stacked  width="320px" height="360px" />
-          </div>
-          <div className="flex justify-between items-center ">
-              <p className="font-semibold text-white text-2xl">Earnings</p>
+          <Stacked width="320px" height="360px" />
+        </div>
+        <div className="flex justify-between items-center ">
+          <p className="font-semibold text-white text-2xl">Earnings</p>
 
-              <div>
-                <p className="text-2xl text-white font-semibold mt-8">$63,448.78</p>
-                <p className="text-gray-200">Monthly revenue</p>
-              </div>
-            </div>
-
-            <div className="mt-4">
-              <SparkLine  id="column-sparkLine" height="100px" type="Column" data={SparklineAreaData} width="320" color="rgb(242, 252, 253)" />
-            </div>
+          <div>
+            <p className="text-2xl text-white font-semibold mt-8">$63,448.78</p>
+            <p className="text-gray-200">Monthly revenue</p>
           </div>
+        </div>
+
+        <div className="mt-4">
+          <SparkLine currentColor={currentColor} id="line-sparkLine" type="Line" height="80px" width="250px" data={SparklineAreaData} color={currentColor} />
+        </div>
+      </div>
     </div>
   );
 };

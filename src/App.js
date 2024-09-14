@@ -11,10 +11,12 @@ import './App.css'
 const App = () => {
 
 
-  const { activeMenu } = useStateContext();
+  const { setCurrentColor, setCurrentMode, currentMode, activeMenu, currentColor, themeSettings, setThemeSettings } = useStateContext();
+
 
   return (
-    <div>
+    <div className={currentMode === 'Dark' ? 'dark' : ''}>
+
       <BrowserRouter>
 
         <div className="flex relative dark:bg-main-dark-bg"></div>
@@ -24,12 +26,14 @@ const App = () => {
         <TooltipComponent content="Setting" position='Top'>
           <button
             type="button"
-            style={{ backgroundColor: 'white', borderRadius: '50%' }}
+            style={{ backgroundColor: currentColor, borderRadius: '50%' }}
+
+            onClick={() => setThemeSettings(true)}
 
 
             className="text-3xl p-3 hover:drop-shadow-xl hover:bg-light-gray"
           >
-            {/* <FiSettings className="text-gray-600" /> */}
+            <FiSettings className="text-gray-600" />
 
           </button>
 
@@ -59,7 +63,7 @@ const App = () => {
           <div className="fixed md:static bg-main-bg dark:bg-main-dark-bg navbar w-full ">
             <Navbar />
           </div>
-
+          {themeSettings && <ThemeSettings />}
           <Routes>
 
 
@@ -68,11 +72,11 @@ const App = () => {
 
 
             <Route path="/orders" element={<Orders />} />
-            <Route path="/employees" element={<Employees/>} />
+            <Route path="/employees" element={<Employees />} />
             <Route path="/customers" element={<Customers />} />
 
 
-=            <Route path="/kanban" element={<Kanban />} />
+            =            <Route path="/kanban" element={<Kanban />} />
             <Route path="/editor" element={<Editor />} />
             <Route path="/calendar" element={<Calendar />} />
             <Route path="/color-picker" element={<Colorpicker />} />
