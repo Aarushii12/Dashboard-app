@@ -6,9 +6,7 @@ import { RiNotification3Line } from 'react-icons/ri';
 import { MdKeyboardArrowDown } from 'react-icons/md';
 import { TooltipComponent } from '@syncfusion/ej2-react-popups';
 import { useStateContext } from '../Contexts/ContextProvider';
-import { Cart, Chat, Notification} from '.';
-
-
+import { Cart, Chat, Notification } from '.';
 
 const NavButton = ({ title, customFunc, icon, color, dotColor, currentColor }) => (
   <TooltipComponent content={title} position='BottomCenter'>
@@ -30,7 +28,6 @@ const NavButton = ({ title, customFunc, icon, color, dotColor, currentColor }) =
 const Navbar = () => {
   const { activeMenu, setActiveMenu, isClicked, setIsClicked, handleClick, screenSize, setScreenSize, currentColor } = useStateContext();
 
-
   useEffect(() => {
     const handleResize = () => setScreenSize(window.innerWidth);
 
@@ -50,7 +47,7 @@ const Navbar = () => {
   }, [screenSize]);
 
   return (
-    <div className='flex justify-between p-2 md:mx-6 relative'>
+    <div className='fixed top-0 left-0 right-0 flex justify-between p-2 md:mx-6 z-50 bg-white shadow-md'>
       <NavButton
         title="Menu"
         customFunc={() => setActiveMenu(prevActiveMenu => !prevActiveMenu)}
@@ -79,7 +76,6 @@ const Navbar = () => {
           dotColor="rgb(254, 201, 15)"
           customFunc={() => handleClick('notification')}
           color={currentColor}
-
           icon={<RiNotification3Line />}
         />
 
@@ -91,7 +87,6 @@ const Navbar = () => {
             <img
               className="rounded-full w-8 h-8"
               src={"https://t4.ftcdn.net/jpg/00/65/77/27/360_F_65772719_A1UV5kLi5nCEWI0BNLLiFaBPEkUbv5Fv.jpg"}
-              
               alt="user-profile"
             />
             <p>
