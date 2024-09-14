@@ -1,26 +1,21 @@
 import React from 'react'
-import { BsCurrencyDollar } from 'react-icons/bs';
-import { GoDot } from 'react-icons/go';
-import { IoIosMore } from 'react-icons/io';
-import { DropDownListComponent } from '@syncfusion/ej2-react-dropdowns';
 import { GoPrimitiveDot } from 'react-icons/go';
-
-
-import { Stacked, Pie, Button, LineChart, SparkLine } from '../components';
-import { earningData, medicalproBranding, recentTransactions, weeklyStats, dropdownData, SparklineAreaData, ecomPieChartData } from '../data/dummy';
+import { Stacked, Pie, Button, LineChart } from '../components';
+import { earningData } from '../data/dummy';
 import { useStateContext } from '../Contexts/ContextProvider';
-import product9 from '../data/product9.jpg';
 const Ecommerce = () => {
   const { currentColor, currentMode } = useStateContext();
 
   return (
+    <div className="image-container">
+
     <div className="mt-24">
       <div className="flex flex-wrap lg:flex-nowrap justify-center">
         <div className="bg-white dark:text-gray-200 dark:bg-secondary-dark-bg h-44 rounded-xl w-full lg:w-80 p-8 pt-9 m-3 bg-hero-pattern bg-no-repeat bg-cover bg-center">
           <div className="flex justify-between items-center">
             <div>
-              <p className="font-bold text-gray-400">Earnings</p>
-              <p className="text-2xl">$63,448.78</p>
+              <p className="font-bold text-green-400">Earnings</p>
+              <p className="text-2xl">$79,848.23</p>
             </div>
           </div>
           <div className="mt-6">
@@ -37,7 +32,7 @@ const Ecommerce = () => {
             <div key={item.title} className="bg-white h-44 dark:text-gray-200 dark:bg-secondary-dark-bg md:w-56 p-4 pt-9 rounded-2xl">
               <button
                 type="button"
-                style={{ color: item.iconColor, backgroundColor: item.iconBg }}
+                style={{ color: 'green', backgroundColor: item.iconBg }}
                 className="text-2xl opacity-0.9 rounded-full p-4 hover:drop-shadow-xl"
               >
                 {item.icon}
@@ -82,12 +77,12 @@ const Ecommerce = () => {
                     23%
                   </span>
                 </p>
-                <p className="text-gray-500 mt-1">Budget</p>
+                <p className="text-green-500 mt-1">Budget</p>
               </div>
               <div className="mt-8">
                 <p className="text-3xl font-semibold">$48,487</p>
 
-                <p className="text-gray-500 mt-1">Expense</p>
+                <p className="text-green-500 mt-1">Expense</p>
               </div>
 
             </div>
@@ -95,18 +90,19 @@ const Ecommerce = () => {
           <Stacked width="320px" height="360px" />
         </div>
         <div className="flex justify-between items-center ">
-          <p className="font-semibold text-white text-2xl">Earnings</p>
+          <p className="font-semibold text-green text-2xl">Earnings</p>
+          
 
           <div>
-            <p className="text-2xl text-white font-semibold mt-8">$63,448.78</p>
-            <p className="text-gray-200">Monthly revenue</p>
+            <p className="text-2xl text-green font-semibold mt-8">$79,848.23</p>
+            <p className="text-black-200">Monthly revenue</p>
           </div>
         </div>
 
         <div className="mt-4">
-          <SparkLine currentColor={currentColor} id="line-sparkLine" type="Line" height="80px" width="250px" data={SparklineAreaData} color={currentColor} />
         </div>
       </div>
+    </div>
     </div>
   );
 };

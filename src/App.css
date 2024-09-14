@@ -3,6 +3,13 @@
 .sidebar {
   box-shadow: rgb(113 122 131 / 11%) 0px 7px 30px 0px;
 }
+.image-container {
+ 
+  background-image: url('https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSFO4G64y7Mo2VBm3QgUJiuoTGQ9qw-Ag-6Rw&s');
+  background-size: cover; /* Optional: Cover the entire div */
+  background-position: center; /* Optional: Center the image */
+}
+
 .nav-item,
 .navbar {
   z-index: 10000;
