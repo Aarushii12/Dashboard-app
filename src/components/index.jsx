@@ -9,7 +9,7 @@ export { default as Cart } from './Cart';
 export { default as Chat } from './Chat';
 export { default as Notification } from './Notification';
 export { default as UserProfile } from './UserProfile';
-export { default as Line} from './Charts/Line';
+export { default as LineChart} from './Charts/LineChart';
 export { default as Stacked } from './Charts/Stacked';
 export { default as Pie } from './Charts/Pie';
 export { default as ChartHeader } from './ChartHeader';
