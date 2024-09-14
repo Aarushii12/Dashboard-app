@@ -3,8 +3,8 @@ import { BrowserRouter, Routes, Route } from 'react-router-dom'
 import { FiSettings } from 'react-icons/fi'
 import { TooltipComponent } from '@syncfusion/ej2-react-popups';
 
-import { Navbar, Footer, Sidebar, LineChart, ThemeSettings } from './components';
-import { Ecommerce, Orders, Calendar, Employees, Stacked, Pyramid, Customers, Kanban, Area, Bar, Pie, Financial, Colorpicker, ColorMapping, Editor } from './pages';
+import { Navbar, Footer, Sidebar, ThemeSettings } from './components';
+import { Ecommerce, Orders, Calendar, Employees, Stacked, Pyramid, Customers, Kanban, Line, Area, Bar, Pie, Financial, Colorpicker, ColorMapping, Editor } from './pages';
 
 import { useStateContext } from './Contexts/ContextProvider';
 import './App.css'
@@ -16,23 +16,25 @@ const App = () => {
 
   return (
     <div className={currentMode === 'Dark' ? 'dark' : ''}>
-
       <BrowserRouter>
-      <div className="flex relative dark:bg-main-dark-bg min-h-screen">
-        {/* Your other content here */}
+        <div className="flex relative dark:bg-main-dark-bg">
+          {/* Other content can go here */}
+        </div>
         
-        <TooltipComponent content="Settings" position="Top">
-          <button
-            type="button"
-            style={{ backgroundColor: currentColor, borderRadius: '50%' }}
-            onClick={() => setThemeSettings(true)}
-            className="fixed right-4 bottom-4 text-3xl p-3 hover:drop-shadow-xl hover:bg-light-gray"
-          >
-            <FiSettings className="text-gray-600" />
-          </button>
-        </TooltipComponent>
+        {/* Settings icon fixed at bottom right */}
+        <div className="fixed right-4 bottom-4 z-1000">
+          <TooltipComponent content="Settings" position='Top'>
+            <button
+              type="button"
+              style={{ backgroundColor: currentColor, borderRadius: '50%' }}
+              onClick={() => setThemeSettings(true)}
+              className="text-3xl p-3 hover:drop-shadow-xl hover:bg-light-gray"
+            >
+              <FiSettings className="text-gray-600" />
+            </button>
+          </TooltipComponent>
+      </div>
 
-</div>
 
         {activeMenu ? (<div className="w-72 fixed sidebar dark:bg-secondary-dark-bg bg-white ">
           < Sidebar />
@@ -58,6 +60,8 @@ const App = () => {
           </div>
           {themeSettings && <ThemeSettings />}
           <Routes>
+
+
             <Route path="/" element={(<Ecommerce />)} />
             <Route path="/ecommerce" element={(<Ecommerce />)} />
 
@@ -72,7 +76,7 @@ const App = () => {
             <Route path="/calendar" element={<Calendar />} />
             <Route path="/color-picker" element={<Colorpicker />} />
 
-            <Route path="/line" element={<LineChart />} />
+            <Route path="/line" element={<Line />} />
             <Route path="/area" element={<Area />} />
             <Route path="/bar" element={<Bar />} />
             <Route path="/pie" element={<Pie />} />

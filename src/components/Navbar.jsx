@@ -8,7 +8,7 @@ import { TooltipComponent } from '@syncfusion/ej2-react-popups';
 import { useStateContext } from '../Contexts/ContextProvider';
 import { Cart, Chat, Notification } from '.';
 
-const NavButton = ({ title, customFunc, icon, color, dotColor, currentColor }) => (
+const NavButton = ({ title, customFunc, icon, color, dotColor }) => (
   <TooltipComponent content={title} position='BottomCenter'>
     <button
       type="button"
@@ -18,7 +18,7 @@ const NavButton = ({ title, customFunc, icon, color, dotColor, currentColor }) =
     >
       <span
         style={{ background: dotColor }}
-        className="absolute inline-flex rounded-full h-2 w-2 right-2 top-2"
+        className="fixed inline-flex rounded-full h-2 w-2 right-2 top-2"
       />
       {icon}
     </button>
@@ -47,7 +47,19 @@ const Navbar = () => {
   }, [screenSize]);
 
   return (
-    <div className='fixed top-0 left-0 right-0 flex justify-between p-2 md:mx-6 z-50 bg-white shadow-md'>
+    <div style={{
+      position: 'fixed',
+      top: 0,
+      left: 0,
+      width: '100%',
+      backgroundColor: '#fff', // Adjust as needed
+      boxShadow: '0 2px 4px rgba(0,0,0,0.1)', // Optional shadow
+      zIndex: 1000,
+      display: 'flex',
+      justifyContent: 'space-between',
+      padding: '10px 20px', // Adjust padding as needed
+      boxSizing: 'border-box'
+    }}>
       <NavButton
         title="Menu"
         customFunc={() => setActiveMenu(prevActiveMenu => !prevActiveMenu)}
@@ -105,3 +117,6 @@ const Navbar = () => {
 };
 
 export default Navbar;
+
+
+
