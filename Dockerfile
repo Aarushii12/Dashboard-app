@@ -1,24 +1,17 @@
-# FROM node:18
-
-# WORKDIR /app
-
-# COPY package*.json ./
-
-# RUN npm install
-
-# COPY . .
-
-# EXPOSE 3000
-
-# CMD ["npm", "start"]
 # Build stage
 FROM node:18 AS build
 
 WORKDIR /app
+
 COPY package*.json ./
 RUN npm install
 
 COPY . .
+
+# 🔥 IMPORTANT FIX
+ENV NODE_OPTIONS="--max-old-space-size=2048"
+ENV GENERATE_SOURCEMAP=false
+
 RUN npm run build
 
 # Serve stage
